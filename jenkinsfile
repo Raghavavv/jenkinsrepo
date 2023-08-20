@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent none
 		stages {
 			stage ('one') {
 				steps {
@@ -29,11 +29,11 @@ pipeline {
 							}
 					}
 					stage ('Integration Test') {
-							steps {
-								docker {
-									refusenode false
-									image 'ubuntu'
-								}
+							agent {
+							docker {
+								refusenode false
+								image 'ubuntu'
+							  }
 							}
 							steps {
 								echo " Running the Integration Test...."
