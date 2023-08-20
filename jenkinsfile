@@ -18,7 +18,7 @@ pipeline {
 					}
 				}
 				steps {
-					echo "Hello"
+					echo "Hello! Stage Three is executed successfully"
 				}
 			}
 			stage ('Four') {
