@@ -30,8 +30,8 @@ pipeline {
 					}
 					stage ('Integration Test') {
 							agent {
-							docker {
-								image 'nginx'
+							      docker {
+									image 'nginx'
 							  }
 							steps {
                                                                 echo " Running the Integration Test...."
