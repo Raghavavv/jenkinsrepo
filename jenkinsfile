@@ -1,0 +1,46 @@
+pipeline {
+	agent none
+		stages {
+			stage ('one') {
+				steps {
+					echo "Hi, This is Raghava V from Jenkins"
+				}
+			}
+			stage ('two') {
+				steps {
+					input ('Do you want to proceed?')
+				}
+			}
+			stage ('Three') {
+				when {
+					not {
+						branch "main"
+					}
+				}
+				steps {
+					echo "Hello! Stage Three is executed successfully"
+				}
+			}
+			stage ('Four') {
+				parallel {
+					stage ('unit Test') {
+							steps {
+								echo "Running the Unit Test...."
+							}
+					}
+					stage ('Integration Test') {
+							agent {
+							      docker {
+									reuseNode true 
+									image 'nginx'
+							  }
+							}
+							steps {
+                                                                echo "Running the Integration Test...."
+                                                           }
+							}
+					}
+			}
+		}
+	}
+
