@@ -30,12 +30,13 @@ pipeline {
 					}
 					stage ('Integration Test') {
 							agent {
+							steps {
+                                                                echo " Running the Integration Test...."
+								sudo chmod -R 777 /var/lib/jenkins/workspace/Pipeline_project*
+                                                        }
 							docker {
 								image 'nginx'
 							  }
-							}
-							steps {
-								echo " Running the Integration Test...."
 							}
 					}
 				}
