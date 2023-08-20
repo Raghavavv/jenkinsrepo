@@ -33,6 +33,7 @@ pipeline {
 							      docker {
 									image 'nginx'
 							  }
+							}
 							steps {
                                                                 echo " Running the Integration Test...."
                                                            }
