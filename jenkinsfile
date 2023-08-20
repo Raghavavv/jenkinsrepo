@@ -1,17 +1,17 @@
 pipeline {
 	agent any
 		stages {
-			stage('one') {
+			stage ('one') {
 				steps {
 					echo "Hi, This is Raghava V from Jenkins"
 				}
 			}
-			stage('two')
+			stage ('two')
 				steps {
 					input('Do you want to proceed?')
 				}
 		}
-			stage('Three') {
+			stage ('Three') {
 				when {
 					not {
 						branch "main"
@@ -21,14 +21,14 @@ pipeline {
 					echo "Hello"
 				}
 			}
-			stage('Four') {
+			stage ('Four') {
 				parallel {
-					stage('unit Test') {
+					stage ('unit Test') {
 							steps {
 								echo "Running Unit Test...."
 							}
 					}
-					stage('Integration Test') {
+					stage ('Integration Test') {
 							agent {
 								docker {
 									refusenode false
