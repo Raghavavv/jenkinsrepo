@@ -31,7 +31,6 @@ pipeline {
 					stage ('Integration Test') {
 							agent {
 							docker {
-								reuseNode true
 								image 'nginx'
 							  }
 							}
