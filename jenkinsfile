@@ -29,10 +29,12 @@ pipeline {
 							}
 					}
 					stage ('Integration Test') {
-							docker {
+							steps {
+								docker {
 									refusenode false
 									image 'ubuntu'
 								}
+							}
 							steps {
 								echo " Running the Integration Test...."
 							}
